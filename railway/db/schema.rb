@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20160227082345) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "current_user_id"
-    t.integer  "current_train_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "train_id"
   end
 
   create_table "trains", force: :cascade do |t|
