@@ -9,12 +9,7 @@ table
       th colspan="3"
 
   tbody
-    - @trains.each do |train|
-      tr
-        td = train.title
-        td = link_to 'Show', train
-        td = link_to 'Edit', edit_train_path(train)
-        td = link_to 'Destroy', train, method: :delete, data: { confirm: 'Are you sure?' }
+     = render @trains
 br
 
 = link_to 'New Train', new_train_path

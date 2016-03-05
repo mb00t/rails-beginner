@@ -3,6 +3,16 @@ p#notice = notice
 p
   strong Title:
   = @train.title
+  - if @train.current_station.present?
+    = @train.current_station.title
+  - else
+    .not Not point train
+p
+  strong Route:
+  - if @train.route.present?
+    = @train.route.title
+  - else
+    .not Not point route
 
 = link_to 'Edit', edit_train_path(@train)
 '|

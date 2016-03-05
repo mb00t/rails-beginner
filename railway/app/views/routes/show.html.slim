@@ -3,6 +3,23 @@ p#notice = notice
 p
   strong Title:
   = @route.title
+p
+  strong Stations in route
+  - if @route.railway_stations.empty?
+      p List is empty
+  - else
+    ul
+      - @route.railway_stations.each do |station|
+        li = station.title
+
+p
+  strong Trains in route
+  - if @route.trains.empty?
+    p List is empty
+  - else
+    ul
+      - @route.trains.each do |train|
+        li = train.title
 
 = link_to 'Edit route', edit_route_path(@route)
 = link_to 'Back to', routes_path
