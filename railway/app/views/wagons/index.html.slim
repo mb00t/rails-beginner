@@ -1,0 +1,15 @@
+p#notice = notice
+
+h1 Listing Wagon
+
+table
+  thead
+    tr
+      th Title
+      th colspan="3"
+
+  tbody
+    = render @wagons
+br
+
+= link_to 'New Train', new_wagon_path

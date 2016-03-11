@@ -1,0 +1,5 @@
+tr
+  td = wagon.title
+  td = link_to 'Show', wagon
+  td = link_to 'Edit', edit_wagon_path(wagon)
+  td = link_to 'Destroy', wagon,  data: { :confirm => 'Are you sure?' }, :method => :delete
