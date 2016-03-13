@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :routes
   resources :wagons
   resources :utypes
+  resources :tickets
 
   get 'welcome/index'
 
