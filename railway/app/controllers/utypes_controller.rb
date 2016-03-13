@@ -1,20 +1,20 @@
-class RoutesController < ApplicationController
+class UtypesController < ApplicationController
 
   before_action :set_route, only: [:show, :edit, :update, :destroy]
 
   def index
-    @routes = Route.all
+    @utypes = Utype.all
   end
 
   def show
   end
 
   def new
-    @route = Route.new
+    @route = Utype.new
   end
 
   def create
-    @route = Route.new(route_params)
+    @route = Utype.new(route_params)
 
     if @route.save
       redirect_to @route, notice: 'Train was successfully created.'
@@ -36,29 +36,17 @@ class RoutesController < ApplicationController
 
   def destroy
     @route.destroy
-    redirect_to routes_path
+    redirect_to utypes_path
   end
 
   private
 
   def set_route
-    @route = Route.find(params[:id])
+    @route = Utype.find(params[:id])
   end
 
   def route_params
-    params.require(:route).permit(:title, railway_station_ids: [])
+    params.require(:route).permit(:title)
   end
 
 end
-
-
-
-
-
-
-
-
-
-
-
-

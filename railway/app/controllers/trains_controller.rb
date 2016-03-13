@@ -43,22 +43,18 @@ class TrainsController < ApplicationController
     respond_to do |format|
       if @train.update(train_params)
         format.html { redirect_to @train, notice: 'Train was successfully updated.' }
-        format.json { render :show, status: :ok, location: @train }
       else
         format.html { render :edit }
-        format.json { render json: @train.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /trains/1
   # DELETE /trains/1.json
+
   def destroy
     @train.destroy
-    respond_to do |format|
-      format.html { redirect_to trains_url, notice: 'Train was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to trains_path
   end
 
   private
@@ -69,6 +65,6 @@ class TrainsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def train_params
-      params.require(:train).permit(:title)
+      params.require(:train).permit(:title, :current_station_id, :route_id, :utype_id, :wagon_id)
     end
 end

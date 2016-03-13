@@ -3,6 +3,28 @@ p#notice = notice
 p
   strong Title:
   = @train.title
+  - if @train.current_station.present?
+    = @train.current_station.title
+  - else
+    .not Not point train
+p
+  strong Route:
+  - if @train.route.present?
+    = @train.route.title
+  - else
+    .not Not point route
+
+p
+  strong Wagons:
+  - if @train.wagon.present?
+    = @train.wagon.each do |wagon|
+      li = "Number vagon #{wagon.title} #{wagon.utype.title}"
+      li = " - col top seats : #{wagon.top_seats}"
+      li = " - col bottom seats: #{wagon.bottom_seats}"
+
+  - else
+    .not Not point wagons
+
 
 = link_to 'Edit', edit_train_path(@train)
 '|

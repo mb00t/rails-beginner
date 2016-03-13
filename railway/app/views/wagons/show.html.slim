@@ -1,0 +1,23 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @wagon.title
+
+p
+  strong Train:
+  - if @wagon.train.present?
+    = @wagon.train.title
+  - else
+    .not Not point train
+
+p
+  strong Type:
+  - if @wagon.utype.present?
+    = @wagon.utype.title
+  - else
+    .not Not point type
+
+= link_to 'Edit', edit_wagon_path(@wagon)
+'|
+= link_to 'Back', wagons_path

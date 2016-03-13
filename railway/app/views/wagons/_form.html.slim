@@ -1,0 +1,21 @@
+= form_for(@wagon) do |f|
+  = render 'common/errors', resource: @wagon
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :train, "Train"
+    = f.collection_select :train_id, Train.all, :id, :title
+  .field
+    = f.label :type, "Тип вагона"
+    = f.collection_select :utype_id, Utype.all, :id, :title
+  .field
+    = f.label :top_seats
+    = f.text_field :top_seats
+  .field
+    = f.label :bottom_seats
+    = f.text_field :bottom_seats
+
+  .actions
+    = f.submit "#{@wagon.new_record? ? 'Create' : 'Change'}"
