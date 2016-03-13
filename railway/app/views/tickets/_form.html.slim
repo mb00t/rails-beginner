@@ -1,0 +1,22 @@
+= form_for(@ticket) do |f|
+  = render 'common/errors', resource: @ticket
+
+  .field
+    = f.label :f_name
+    = f.text_field :f_name
+  .field
+    = f.label :l_name
+    = f.text_field :l_name
+  .field
+    = f.label :route, "Route"
+    = f.collection_select :route_id, Route.all, :id, :title
+
+  .field
+    = f.label :f_station, "first station"
+    = f.collection_select :f_station_id, RailwayStation.all, :id, :title
+  .field
+    = f.label :l_station, "last station"
+    = f.collection_select :l_station_id, RailwayStation.all, :id, :title
+
+  .actions
+    = f.submit "#{@ticket.new_record? ? 'Create' : 'Change'}"

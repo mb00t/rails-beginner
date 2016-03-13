@@ -1,0 +1,27 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @ticket.f_name
+  = @ticket.l_name
+
+p
+  strong Route:
+  - if @ticket.route.present?
+    = @ticket.route.title
+  - else
+    .not Not point route
+
+p
+  strong Stations:
+  - if @ticket.f_station.present? && @ticket.l_station.present?
+    = @ticket.f_station.title
+    '|
+    = @ticket.l_station.title
+  - else
+    .not Not point stations
+
+
+= link_to 'Edit', edit_ticket_path(@ticket)
+'|
+= link_to 'Back', tickets_path
